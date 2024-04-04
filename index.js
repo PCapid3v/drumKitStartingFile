@@ -11,7 +11,9 @@ function handleclick() {
     makeSound(buttonContext)    
  
 }
-
+document.addEventListener("keydown", function (event) {
+    makeSound(event.key)
+});
 
 const makeSound = (key) => {
     switch (key) {
