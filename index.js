@@ -8,11 +8,13 @@ for (let i = 0; i < drumElements.length; i++) {
 function handleclick() {
     const buttonContext = this.textContent
 
-    makeSound(buttonContext)    
+    makeSound(buttonContext)   
+    buttonAnimation(buttonContext)
  
 }
 document.addEventListener("keydown", function (event) {
     makeSound(event.key)
+    buttonAnimation(event.key)
 });
 
 const makeSound = (key) => {
@@ -54,5 +56,13 @@ const makeSound = (key) => {
       default:
         console.log(key);
     }
+}
+
+const buttonAnimation = (currentKey) => {
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton?.classList.add("pressed");
+    setTimeout(() => {
+        activeButton?.classList.remove("pressed")
+    },100)
 }
 
